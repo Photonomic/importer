@@ -1,6 +1,3 @@
-Sure! Below is a sample `README.md` file that you can use for your Go CLI application.
-
-```markdown
 # Photo Importer CLI
 
 A command-line tool written in Go that monitors a specified directory for JPEG file changes and automatically imports them into a specified album in the macOS Photos application.
@@ -83,9 +80,3 @@ Feel free to open issues or submit pull requests if you want to contribute!
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-```
-
-### Notes
-
-- Replace `https://github.com/yourusername/photoimporter.git` with the actual URL of your repository.
-- Adjust any sections as necessary to fit your project specifics.
