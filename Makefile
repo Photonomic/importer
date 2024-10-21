@@ -6,6 +6,7 @@ SRC_DIR = .
 BUILD_DIR = bin
 PLIST_FILE = com.Photonomic.photoimporter.plist
 INSTALL_DIR = ~/Library/LaunchAgents
+BIN_INSTALL_DIR = /usr/local/bin
 WATCH_DIR = /Users/matt/Pictures/Leica/Exports  # <<<<<<  Change this to your desired directory >>>>>>>
 ALBUM_NAME = "InstagramMe"   # <<<<< CHANGE THIS TO YOUR ALBUM NAME >>>>>>>>
 
@@ -23,8 +24,8 @@ build:
 # Install the application
 install: build
 	@echo "Installing the application..."
-	@mkdir -p $(INSTALL_DIR)
-	cp $(BUILD_DIR)/$(APP_NAME) $(INSTALL_DIR)
+	@mkdir -p $(BIN_INSTALL_DIR)
+	cp $(BUILD_DIR)/$(APP_NAME) $(BIN_INSTALL_DIR)
 
 # Create the launchctl service file
 create-service:
@@ -37,7 +38,7 @@ create-service:
 	echo '    <string>com.Photonomic.photoimporter</string>' >> ~/Library/LaunchAgents/$(PLIST_FILE)
 	echo '    <key>ProgramArguments</key>' >> ~/Library/LaunchAgents/$(PLIST_FILE)
 	echo '    <array>' >> ~/Library/LaunchAgents/$(PLIST_FILE)
-	echo '        <string>$(INSTALL_DIR)/$(APP_NAME)</string>' >> ~/Library/LaunchAgents/$(PLIST_FILE)
+	echo '        <string>$(BIN_INSTALL_DIR)/$(APP_NAME)</string>' >> ~/Library/LaunchAgents/$(PLIST_FILE)
 	echo '        <string>--watch</string>' >> ~/Library/LaunchAgents/$(PLIST_FILE)
 	echo '        <string>$(WATCH_DIR)</string>' >> ~/Library/LaunchAgents/$(PLIST_FILE)
 	echo '        <string>--album</string>' >> ~/Library/LaunchAgents/$(PLIST_FILE)
